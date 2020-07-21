@@ -1,2 +1,3 @@
 Fellow Teammates add your details here, to introduce yourself.
 I am Monil Dand . Reach me out at monil.dand@spit.ac.in , I have experience in django, flutter and beginner in AngularJs.
+I'm Sai Prakash Reddy. You can reach me at <spreddy0002@gmail.com>. I'm an intermediate at ReactJS, MySQL, PHP and beginner with MonogDB and Machine Learning.
