@@ -1,0 +1,289 @@
+<html>
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+      
+        <title>Tables</title>
+      
+        <!-- Custom fonts for this template -->
+        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+      
+        <!-- Custom styles for this template -->
+        <link href="css/sb-admin-2.css" rel="stylesheet">
+      
+        <!-- Custom styles for this page -->
+        <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+      
+      </head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg navbar-light  sticky border-0 shadow-lg my-5" style="margin-top: 0 !important";>
+        <div class="col-md-9">
+            <a class="navbar-brand" href="#">THE/ <span class="text-my-color">NUDGE FOUNDATION</span></a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+
+        <div class="col-md-3">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="signin.php">HELLO TEACHER </a>
+                    </li>
+                    <!-- <li class="nav-item active">
+                        <a class="nav-link" href="#">REGISTER <span class="sr-only">(current)</span></a>
+                    </li>
+                     -->
+                    <li class="nav-item">
+                        <a class="nav-link " href="#"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="index.php">HOME</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid" style="padding-left: 70px;">
+
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+          <h1 class="h3 mb-0 text-gray-800" style="">Dashboard</h1>
+          <a href="assignslot.html" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm" style="margin-top:10px;"><i class="fas fa-download fa-sm text-white-50"></i> Assign Slots</a>
+        </div>
+        <!--Link to go to slot assignment page-->
+        <!-- Content Row -->
+        <div class="row">
+    
+          <!-- <h1 class="h3 mb-0 text-gray-800" style="margin-top:60px;">Today's Assigned Slots</h1> -->
+          <!--1-->
+          <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-warning shadow h-10 py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text font-weight-bold text-primary text-uppercase mb-1">Batch 1</div>
+                    <div class="h5 mb-0  text-gray-800" style="padding-bottom: 10px; padding-top: 10px;">Start Date: 26/07/20</div>
+                    <div class="h5 mb-0  text-gray-800" style="padding-bottom: 10px; padding-top: 10px;">End Date: 25/11/20</div>
+                    <!-- <div class="h5 mb-0  text-gray-800">8 AM - 9 AM</div> -->
+                    <!-- <div class="h5 mb-0 font-weight-bold text-gray-800"></div><br> -->
+                    <!-- <div class="h5 mb-0 font-weight-bold text-gray-800">Teacher</div><br> -->
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <!-- 2 -->
+          <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-10 py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text font-weight-bold text-primary text-uppercase mb-1">Batch 2</div>
+                    <div class="h5 mb-0  text-gray-800" style="padding-bottom: 10px; padding-top: 10px;">Start Date: 26/07/20</div>
+                    <div class="h5 mb-0  text-gray-800" style="padding-bottom: 10px; padding-top: 10px;">End Date: 25/11/20</div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <!-- 3 -->
+          <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-danger shadow h-10 py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text font-weight-bold text-primary text-uppercase mb-1">Batch 3</div>
+                    <div class="h5 mb-0  text-gray-800" style="padding-bottom: 10px; padding-top: 10px;">Start Date: 26/07/20</div>
+                    <div class="h5 mb-0  text-gray-800" style="padding-bottom: 10px; padding-top: 10px;">End Date: 25/11/20</div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="container">
+            <!-- <h2>Dynamic Tabs</h2> -->
+            <ul class="nav nav-tabs" style="padding-left: 30px;">
+              <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+              <li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
+              <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
+              <li><a data-toggle="tab" href="#menu3">Menu 3</a></li>
+            </ul>
+          
+            
+            </div>
+          </div>
+          
+<!-- Begin Page Content -->
+<div class="container-fluid" style="width:80% !important;">
+
+    <!-- Page Heading -->
+    
+
+    <div class="card shadow mb-4">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Students</h6>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Interest</th>
+                <!-- <th>Office</th> -->
+                <th>Age</th>
+                <th>Start date</th>
+                <th>Aadhar Number</th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <th>Name</th>
+                <th>Interest</th>
+                <!-- <th>Office</th> -->
+                <th>Age</th>
+                <th>Start date</th>
+                <th>Aadhar Number</th>
+              </tr>
+            </tfoot>
+            <tbody>
+              
+              <tr>
+                <td>Cedric Kelly</td>
+                <td>Senior Javascript Developer</td>
+                <!-- <td>Edinburgh</td> -->
+                <td>22</td>
+                <td>2012/03/29</td>
+                <td>433060</td>
+              </tr>
+              <tr>
+                <td>Airi Satou</td>
+                <td>Accountant</td>
+                <!-- <td>Tokyo</td> -->
+                <td>33</td>
+                <td>2008/11/28</td>
+                <td>162700</td>
+              </tr>
+              <tr>
+                <td>Brielle Williamson</td>
+                <td>Integration Specialist</td>
+                <!-- <td>New York</td> -->
+                <td>61</td>
+                <td>2012/12/02</td>
+                <td>372000</td>
+              </tr>
+              <tr>
+                <td>Herrod Chandler</td>
+                <td>Sales Assistant</td>
+                <!-- <td>San Francisco</td> -->
+                <td>59</td>
+                <td>2012/08/06</td>
+                <td>137500</td>
+              </tr>
+              <tr>
+                <td>Rhona Davidson</td>
+                <td>Integration Specialist</td>
+                <!-- <td>Tokyo</td> -->
+                <td>55</td>
+                <td>2010/10/14</td>
+                <td>327900</td>
+              </tr>
+              
+              <tr>
+                <td>Tatyana Fitzpatrick</td>
+                <td>Regional Director</td>
+                <!-- <td>London</td> -->
+                <td>19</td>
+                <td>2010/03/17</td>
+                <td>385750</td>
+              </tr>
+              <tr>
+                <td>Michael Silva</td>
+                <td>Marketing Designer</td>
+                <!-- <td>London</td> -->
+                <td>66</td>
+                <td>2012/11/27</td>
+                <td>198500</td>
+              </tr>
+              <tr>
+                <td>Paul Byrd</td>
+                <td>Chief Financial Officer (CFO)</td>
+                <!-- <td>New York</td> -->
+                <td>64</td>
+                <td>2010/06/09</td>
+                <td>725000</td>
+              </tr>
+              
+                <td>Jonas Alexander</td>
+                <td>Developer</td>
+                <!-- <td>San Francisco</td> -->
+                <td>30</td>
+                <td>2010/07/14</td>
+                <td>86500</td>
+              </tr>
+              <tr>
+                <td>Shad Decker</td>
+                <td>Regional Director</td>
+                <!-- <td>Edinburgh</td> -->
+                <td>51</td>
+                <td>2008/11/13</td>
+                <td>183000</td>
+              </tr>
+              <tr>
+                <td>Michael Bruce</td>
+                <td>Javascript Developer</td>
+                <!-- <td>Singapore</td> -->
+                <td>29</td>
+                <td>2011/06/27</td>
+                <td>183000</td>
+              </tr>
+              <tr>
+                <td>Donna Snider</td>
+                <td>Customer Support</td>
+                <!-- <td>New York</td> -->
+                <td>27</td>
+                <td>2011/01/25</td>
+                <td>112000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
+
+
+</div>
+<!-- End of Content Wrapper -->
+
+</div>
+
+<!-- End of Page Wrapper -->
+</body>
+</html>
