@@ -38,11 +38,14 @@ $auth->build(); //it automatically creates a table for me
             <div class="col-md-3">
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="signin.php">LOGIN</a>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="signin.php">ADMIN</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="signup.php">REGISTER</a>
+                            <a class="nav-link" href="signin-teacher.php">TEACHER</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="signin-student.php">STUDENT</a>
                         </li>
                         
                         
