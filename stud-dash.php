@@ -74,10 +74,10 @@
                                 <div class="row no-gutters align-items-center">
                                   <div class="col mr-2">
 
-                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">'.$row[0].'</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">'.$row[1].'</div><br>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">'.$row[2].'</div><br>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">'.$row[3].'</div><br>';
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Batch id : '.$row[0].'</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">Start Date :'.$row[1].'</div><br>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">Start time :'.$row[2].'</div><br>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">End time :'.$row[3].'</div><br>';
                         if($full){
                             echo '<button type="button" class="btn btn-secondary"disabled>Full</button>
                         <div class="progress" style="margin-top:10px">
