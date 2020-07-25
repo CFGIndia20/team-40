@@ -1,9 +1,9 @@
 <?php 
 class Database {
     protected $host = "localhost";
-    protected $db = "dbname";
-    protected $username = "username";
-    protected $password = "password";
+    protected $db = "authentication";
+    protected $username = "priyanka";
+    protected $password = "priyanka";
     protected $table;
     protected $stmt;
     protected $pdo;
