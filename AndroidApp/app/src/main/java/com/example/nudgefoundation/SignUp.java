@@ -164,11 +164,11 @@ public class SignUp extends AppCompatActivity implements AdapterView.OnItemSelec
                                                     memberStudent.setMarksheetUrl("http//fetch.me");
                                                     long time = System.currentTimeMillis();
 
-                                                    dbref.collection("Students")
-                                                            .add(memberStudent)
-                                                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                                    dbref.collection("Students").document(mAuth.getUid())
+                                                            .set(memberStudent)
+                                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
                                                                 @Override
-                                                                public void onSuccess(DocumentReference documentReference) {
+                                                                public void onComplete(@NonNull Task<Void> task) {
                                                                     Toast.makeText(SignUp.this, "Data Added", Toast.LENGTH_SHORT).show();
                                                                     Toast.makeText(SignUp.this, "Data Inserted Successfully!!!", Toast.LENGTH_SHORT).show();
                                                                     startActivity(new Intent(getApplicationContext(), StudentActivity.class));

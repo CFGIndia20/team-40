@@ -35,14 +35,14 @@
                 android:shadowDy="1"
                 android:shadowRadius="2"
                 android:text="LIST OF COMPANIES"
-                android:textColor="@color/whiteColour"
+                android:textColor="@color/colorBlack"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_college_event"
+            android:id="@+id/recycler_company_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1">
