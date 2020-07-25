@@ -50,7 +50,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/t_date"
+                    android:id="@+id/t_description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="4dp"
@@ -60,7 +60,7 @@
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/t_time"
+                    android:id="@+id/t_ctc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -69,7 +69,7 @@
                     android:textSize="14sp" />
 
                 <Button
-                    android:id="@+id/t_venue"
+                    android:id="@+id/btn_apply"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="4dp"
@@ -80,15 +80,6 @@
                     android:textSize="14sp" />
 
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/t_description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Description: "
-                android:textSize="18sp"
-                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/description"
