@@ -12,10 +12,17 @@ public class MemberStudent {
     String user_type;
     String user_id;
 
+    String attendence;
+    String student_percentage;
+    String skills;
+
     public MemberStudent() {
+        skills="";
+        student_percentage="100";
+        attendence="85";
     }
 
-    public MemberStudent(String student_name, String student_id, String student_email, String student_phone, String student_age, String student_aadhar_number, String marksheetUrl, String student_password, String user_type, String user_id) {
+    public MemberStudent(String student_name, String student_id, String student_email, String student_phone, String student_age, String student_aadhar_number, String marksheetUrl, String student_password, String user_type, String user_id, String attendence, String student_percentage) {
         this.student_name = student_name;
         this.student_id = student_id;
         this.student_email = student_email;
@@ -26,6 +33,8 @@ public class MemberStudent {
         this.student_password = student_password;
         this.user_type = user_type;
         this.user_id = user_id;
+        this.attendence = attendence;
+        this.student_percentage = student_percentage;
     }
 
     public String getStudent_name() {
@@ -106,5 +115,21 @@ public class MemberStudent {
 
     public void setUser_id(String user_id) {
         this.user_id = user_id;
+    }
+
+    public String getAttendence() {
+        return attendence;
+    }
+
+    public void setAttendence(String attendence) {
+        this.attendence = attendence;
+    }
+
+    public String getStudent_percentage() {
+        return student_percentage;
+    }
+
+    public void setStudent_percentage(String student_percentage) {
+        this.student_percentage = student_percentage;
     }
 }
