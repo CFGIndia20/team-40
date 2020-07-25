@@ -235,6 +235,7 @@ label {
 
 button {
   border-radius: 0;
+ 
 }
 
 button:focus {
@@ -328,6 +329,7 @@ legend {
 
 progress {
   vertical-align: baseline;
+  margin-top:20px;
 }
 
 [type="number"]::-webkit-inner-spin-button,
