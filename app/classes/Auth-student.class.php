@@ -1,8 +1,8 @@
 <?php
-class Auth{
+class Authstudent{
     protected $database;
     protected $hash;
-    protected $table = "admin";
+    protected $table = "student";
     protected $authSession = 'user';
     public function __construct(Database $database, Hash $hash){
         $this->database = $database;
@@ -56,7 +56,7 @@ class Auth{
 
     public function resetUserPassword(string $token, string $password){
         $password = $this->hash->make($password);
-        return $this->database->query("UPDATE admin, tokens SET admin.password ='$password' WHERE admin.id = tokens.user_id and tokens.token = '$token'");
+        return $this->database->query("UPDATE student, tokens SET student.password ='$password' WHERE student.id = tokens.user_id and tokens.token = '$token'");
     }
 
     public function user(){ //returns object of name of user unlike check() jo sirf ye batata hai ki user is logged in or not
