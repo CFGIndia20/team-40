@@ -43,6 +43,7 @@ public class SignUp extends AppCompatActivity implements AdapterView.OnItemSelec
     MemberStudent memberStudent;
     MemberTeacher memberTeacher;
     Button btnRegisterTeacher;
+    Button btnRegisterStudent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +51,7 @@ public class SignUp extends AppCompatActivity implements AdapterView.OnItemSelec
         setContentView(R.layout.activity_sign_up);
         mAuth = FirebaseAuth.getInstance();
         loadingBar = new ProgressDialog(this);
+        btnRegisterStudent = findViewById(R.id.submitButtonStudent);
         dbref = FirebaseFirestore.getInstance();
         spinnerUserType             = findViewById(R.id.spinnerUserType);
         stubStudent                 = (ViewStub) findViewById(R.id.layout_stub_student);
@@ -113,7 +115,7 @@ public class SignUp extends AppCompatActivity implements AdapterView.OnItemSelec
                 txtemailStudent = findViewById(R.id.signinEmail);
                 txtpwdStudent = findViewById(R.id.signinpwdStudent);
                 txtcnfpwdStudent = findViewById(R.id.signinpwdcnfrmStudent);
-                btnRegisterTeacher = findViewById(R.id.submitButtonStudent);
+                btnRegisterStudent = findViewById(R.id.submitButtonStudent);
                 txtAadharId = findViewById(R.id.signinAadhar);
                 txtAgeStudent = findViewById(R.id.signinage);
 
@@ -198,8 +200,84 @@ public class SignUp extends AppCompatActivity implements AdapterView.OnItemSelec
                 signinpwdTeacher           = findViewById(R.id.signinpwdTeacher);
                 signinpwdcnfrmTeacher        = findViewById(R.id.signinpwdcnfrmTeacher);
                 btnRegisterTeacher      = findViewById(R.id.submitButtonTeacher);
-                txtAadharId = findViewById(R.id.signinAadhar);
-                txtAgeStudent = findViewById(R.id.signinage);
+
+                btnRegisterTeacher.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        final String name       = signinnameTeacher.getText().toString();
+                        final String usn        = signinUniqueIdTeacher.getText().toString();
+                        final String pno        = signinpnoTeacher.getText().toString();
+                        final String email      = signinemailTeacher.getText().toString();
+                        final String pwd        = signinpwdTeacher.getText().toString();
+                        final String cnfpwd     = signinpwdcnfrmTeacher.getText().toString();
+                        //todo : get marksheet uri
+//                        final String marksheetUri = txt
+
+                        if(!name.isEmpty() && !usn.isEmpty() && !pno.isEmpty() &&
+                                !email.isEmpty() && !pwd.isEmpty() && !cnfpwd.isEmpty() && pwd.equals(cnfpwd)) {
+                            if (cnfpwd.equals(pwd)) {
+                                loadingBar.setTitle("Creating new Account");
+                                loadingBar.setMessage("Please wait, while we are creating new account for you...");
+                                loadingBar.setCanceledOnTouchOutside(true);
+                                loadingBar.show();
+                                memberTeacher = new MemberTeacher();
+                                mAuth.createUserWithEmailAndPassword(email, pwd)
+                                        .addOnCompleteListener(SignUp.this, new OnCompleteListener<AuthResult>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                                if (task.isSuccessful()) {
+                                                    memberTeacher.setTeacher_name(name);
+                                                    memberTeacher.setTeacher_id(usn);
+                                                    memberTeacher.setTeacher_phone(pno);
+                                                    memberTeacher.setTeacher_email(email);
+                                                    memberTeacher.setUser_type("LoginStudent");// login type is student
+                                                    //we encrypt and store password
+                                                    memberTeacher.setTeacher_password(""+pwd);
+                                                    memberTeacher.setUser_id(mAuth.getUid());
+                                                    long time = System.currentTimeMillis();
+
+                                                    dbref.collection("Teachers")
+                                                            .add(memberTeacher)
+                                                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                                                @Override
+                                                                public void onSuccess(DocumentReference documentReference) {
+                                                                    Toast.makeText(SignUp.this, "Data Added", Toast.LENGTH_SHORT).show();
+                                                                    Toast.makeText(SignUp.this, "Data Inserted Successfully!!!", Toast.LENGTH_SHORT).show();
+                                                                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                                                                }
+                                                            });
+
+                                                    loadingBar.dismiss();
+
+                                                } else {
+                                                    loadingBar.dismiss();
+                                                    Toast.makeText(SignUp.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+
+                                                }
+
+                                            }
+                                        });
+                            } else {
+                                Toast.makeText(SignUp.this, "Password Not Confirmed", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        else {
+                            Snackbar.make(v, "All fields are required.", Snackbar.LENGTH_LONG).show();
+                        }
+
+                    }
+                });
+                break;
+            //todo: Change the value to admin
+            /*case 3: //Admin Sign UP
+
+                signinnameTeacher            = findViewById(R.id.signinnameTeacher);
+                signinUniqueIdTeacher           = findViewById(R.id.signinUniqueIdTeacher);
+                signinpnoTeacher           = findViewById(R.id.signinpnoTeacher);
+                signinemailTeacher         = findViewById(R.id.signinemailTeacher);
+                signinpwdTeacher           = findViewById(R.id.signinpwdTeacher);
+                signinpwdcnfrmTeacher        = findViewById(R.id.signinpwdcnfrmTeacher);
+                btnRegisterTeacher      = findViewById(R.id.submitButtonTeacher);
 
                 btnRegisterStudent.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -225,30 +303,29 @@ public class SignUp extends AppCompatActivity implements AdapterView.OnItemSelec
                                             @Override
                                             public void onComplete(@NonNull Task<AuthResult> task) {
                                                 if (task.isSuccessful()) {
-                                                    memberTeacher.name(name);
-                                                    memberTeacher.setStudent_id(usn);
-                                                    memberTeacher.setStudent_phone(pno);
-                                                    memberTeacher.setStudent_email(email);
-                                                    memberTeacher.setStudent_aadhar_number(aadhar);
+                                                    memberTeacher.setTeacher_name(name);
+                                                    memberTeacher.setTeacher_id(usn);
+                                                    memberTeacher.setTeacher_phone(pno);
+                                                    memberTeacher.setTeacher_email(email);
                                                     memberTeacher.setUser_type("LoginStudent");// login type is student
                                                     //we encrypt and store password
-                                                    memberTeacher.setStudent_password(""+pwd);
+                                                    memberTeacher.setTeacher_password(""+pwd);
                                                     memberTeacher.setUser_id(mAuth.getUid());
                                                     long time = System.currentTimeMillis();
 
-                                                    dbref.collection("Student")
+                                                    dbref.collection("Teachers")
                                                             .add(memberStudent)
                                                             .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                                                 @Override
                                                                 public void onSuccess(DocumentReference documentReference) {
                                                                     Toast.makeText(SignUp.this, "Data Added", Toast.LENGTH_SHORT).show();
-
+                                                                    Toast.makeText(SignUp.this, "Data Inserted Successfully!!!", Toast.LENGTH_SHORT).show();
+                                                                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                                                                 }
                                                             });
 
                                                     loadingBar.dismiss();
-                                                    Toast.makeText(SignUp.this, "Data Inserted Successfully!!!", Toast.LENGTH_SHORT).show();
-                                                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+
                                                 } else {
                                                     loadingBar.dismiss();
                                                     Toast.makeText(SignUp.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
@@ -267,7 +344,7 @@ public class SignUp extends AppCompatActivity implements AdapterView.OnItemSelec
 
                     }
                 });
-                break;
+                break;*/
         }
     }
 
