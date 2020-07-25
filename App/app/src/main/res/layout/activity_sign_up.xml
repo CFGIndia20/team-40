@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp">
+
+            <ImageView
+                android:id="@+id/imageViewProfile"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/profile"
+                android:alpha="0.2"/>
+
+            <ImageButton
+                android:id="@+id/profileEditButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignWithParentIfMissing="false"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="32dp"
+                android:backgroundTint="#00C47E7E"
+                app:srcCompat="@drawable/circle_add"
+                />
+        </RelativeLayout>
+
+        <Spinner
+            android:id="@+id/spinnerUserType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="32dp"
+            android:dropDownListViewStyle="@style/SpinnerStyle"
+            android:elevation="2dp"
+            android:focusable="auto" />
+
+        <ViewStub
+            android:id="@+id/layout_stub_student"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.75"
+            android:layout="@layout/student_sign_up_form"/>
+        <ViewStub
+            android:id="@+id/layout_stub_teacher"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.75"
+            android:layout="@layout/teacher_signup_form"
+            />
+        <ViewStub
+            android:id="@+id/layout_stub_admin"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.75"
+            android:layout="@layout/admin_signup_form"/>
+    </LinearLayout>
+
+</ScrollView>
