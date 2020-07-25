@@ -169,6 +169,8 @@ public class SignUp extends AppCompatActivity implements AdapterView.OnItemSelec
                                                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                                                 @Override
                                                                 public void onComplete(@NonNull Task<Void> task) {
+                                                                    dbref.collection("Users").document(mAuth.getUid())
+                                                                            .set(memberStudent);
                                                                     Toast.makeText(SignUp.this, "Data Added", Toast.LENGTH_SHORT).show();
                                                                     Toast.makeText(SignUp.this, "Data Inserted Successfully!!!", Toast.LENGTH_SHORT).show();
                                                                     startActivity(new Intent(getApplicationContext(), StudentActivity.class));
@@ -246,9 +248,12 @@ public class SignUp extends AppCompatActivity implements AdapterView.OnItemSelec
                                                             .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                                                 @Override
                                                                 public void onSuccess(DocumentReference documentReference) {
+                                                                    dbref.collection("Users")
+                                                                            .document(mAuth.getUid())
+                                                                            .set(memberTeacher);
                                                                     Toast.makeText(SignUp.this, "Data Added", Toast.LENGTH_SHORT).show();
                                                                     Toast.makeText(SignUp.this, "Data Inserted Successfully!!!", Toast.LENGTH_SHORT).show();
-                                                                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                                                                    startActivity(new Intent(getApplicationContext(), AdminActivity.class));
                                                                 }
                                                             });
 
@@ -320,15 +325,21 @@ public class SignUp extends AppCompatActivity implements AdapterView.OnItemSelec
                                                     long time = System.currentTimeMillis();
 
                                                     dbref.collection("Admins")
-                                                            .add(memberAdmin)
-                                                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                                            .document(mAuth.getUid())
+                                                            .set(memberAdmin)
+                                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
                                                                 @Override
-                                                                public void onSuccess(DocumentReference documentReference) {
+                                                                public void onComplete(@NonNull Task<Void> task) {
+                                                                    dbref.collection("Users")
+                                                                            .document(mAuth.getUid())
+                                                                            .set(memberAdmin);
                                                                     Toast.makeText(SignUp.this, "Data Added", Toast.LENGTH_SHORT).show();
                                                                     Toast.makeText(SignUp.this, "Data Inserted Successfully!!!", Toast.LENGTH_SHORT).show();
                                                                     startActivity(new Intent(getApplicationContext(), AdminActivity.class));
+
                                                                 }
                                                             });
+
 
                                                     loadingBar.dismiss();
 
