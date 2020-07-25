@@ -11,14 +11,14 @@ if(!empty($_POST)){
         'email' => [
             'required' => true,
             'maxlength' => 255,
-            'unique' => 'admin',
+            'unique' => 'teacher',
             'email' => true
         ],
         'name' => [
             'required' => true,
             'minlength' => 2,
             'maxlength' => 20,
-            'unique' => 'admin'
+            'unique' => 'teacher'
         ],
         'phone' => [
             'required' => true,
@@ -107,9 +107,9 @@ if(!empty($_POST)){
                         <div class="col-lg-12">
                             <div class="p-5">
                                 <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4">Create an Account Admin!</h1>
+                                    <h1 class="h4 text-gray-900 mb-4">Create an Account Teacher!</h1>
                                 </div>
-                                <form action="signin.php" method="POST" class="user">
+                                <form action="signup.php" method="POST" class="user">
                                     <div class="form-group row">
                                         <div class="col-sm-12 mb-3 mb-sm-0">
                 
