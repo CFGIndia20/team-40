@@ -38,7 +38,7 @@ $auth->build(); //it automatically creates a table for me
             <div class="col-md-3">
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
-                        <li class="nav-item active">
+                        <li class="nav-item ">
                             <a class="nav-link" href="signin.php">LOGIN</a>
                         </li>
                         <li class="nav-item">

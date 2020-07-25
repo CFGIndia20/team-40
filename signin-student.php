@@ -100,7 +100,7 @@ if(isset($_COOKIE['token']) && $tokenHandler->isValid($_COOKIE['token'], 1)){
                                 <div class="col-lg-12">
                                     <div class="p-5">
                                         <div class="text-center">
-                                            <h1 class="h4 text-gray-900 mb-4">Welcome Back Admin!</h1>
+                                            <h1 class="h4 text-gray-900 mb-4">Welcome Back Student!</h1>
                                         </div>
                                         <form class="user" action="signin.php" method="POST">
                                             <div class="form-group">
