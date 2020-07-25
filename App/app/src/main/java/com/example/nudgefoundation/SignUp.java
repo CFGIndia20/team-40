@@ -42,7 +42,7 @@ public class SignUp extends AppCompatActivity implements AdapterView.OnItemSelec
     MemberAdmin memberAdmin;
     MemberStudent memberStudent;
     MemberTeacher memberTeacher;
-    Button btnRegisterStudent;
+    Button btnRegisterTeacher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,7 +113,7 @@ public class SignUp extends AppCompatActivity implements AdapterView.OnItemSelec
                 txtemailStudent = findViewById(R.id.signinEmail);
                 txtpwdStudent = findViewById(R.id.signinpwdStudent);
                 txtcnfpwdStudent = findViewById(R.id.signinpwdcnfrmStudent);
-                btnRegisterStudent = findViewById(R.id.submitButtonStudent);
+                btnRegisterTeacher = findViewById(R.id.submitButtonStudent);
                 txtAadharId = findViewById(R.id.signinAadhar);
                 txtAgeStudent = findViewById(R.id.signinage);
 
@@ -138,6 +138,7 @@ public class SignUp extends AppCompatActivity implements AdapterView.OnItemSelec
                                 loadingBar.setMessage("Please wait, while we are creating new account for you...");
                                 loadingBar.setCanceledOnTouchOutside(true);
                                 loadingBar.show();
+                                memberStudent = new MemberStudent();
                                 mAuth.createUserWithEmailAndPassword(email, pwd)
                                         .addOnCompleteListener(SignUp.this, new OnCompleteListener<AuthResult>() {
                                             @Override
@@ -154,6 +155,85 @@ public class SignUp extends AppCompatActivity implements AdapterView.OnItemSelec
                                                     memberStudent.setStudent_age(age);
                                                     memberStudent.setUser_id(mAuth.getUid());
                                                     memberStudent.setMarksheetUrl("http//fetch.me");
+                                                    long time = System.currentTimeMillis();
+
+                                                    dbref.collection("Students")
+                                                            .add(memberStudent)
+                                                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                                                @Override
+                                                                public void onSuccess(DocumentReference documentReference) {
+                                                                    Toast.makeText(SignUp.this, "Data Added", Toast.LENGTH_SHORT).show();
+                                                                    Toast.makeText(SignUp.this, "Data Inserted Successfully!!!", Toast.LENGTH_SHORT).show();
+                                                                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                                                                }
+                                                            });
+
+                                                    loadingBar.dismiss();
+
+                                                } else {
+                                                    loadingBar.dismiss();
+                                                    Toast.makeText(SignUp.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+
+                                                }
+
+                                            }
+                                        });
+                            } else {
+                                Toast.makeText(SignUp.this, "Password Not Confirmed", Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            Snackbar.make(v, "All fields are required.", Snackbar.LENGTH_LONG).show();
+                        }
+
+                    }
+                });
+                break;
+            //todo: Change the value to admin
+            case 2: //Teacher Sign UP
+
+                signinnameTeacher            = findViewById(R.id.signinnameTeacher);
+                signinUniqueIdTeacher           = findViewById(R.id.signinUniqueIdTeacher);
+                signinpnoTeacher           = findViewById(R.id.signinpnoTeacher);
+                signinemailTeacher         = findViewById(R.id.signinemailTeacher);
+                signinpwdTeacher           = findViewById(R.id.signinpwdTeacher);
+                signinpwdcnfrmTeacher        = findViewById(R.id.signinpwdcnfrmTeacher);
+                btnRegisterTeacher      = findViewById(R.id.submitButtonTeacher);
+                txtAadharId = findViewById(R.id.signinAadhar);
+                txtAgeStudent = findViewById(R.id.signinage);
+
+                btnRegisterStudent.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        final String name       = signinnameTeacher.getText().toString();
+                        final String usn        = signinUniqueIdTeacher.getText().toString();
+                        final String pno        = signinpnoTeacher.getText().toString();
+                        final String email      = signinemailTeacher.getText().toString();
+                        final String pwd        = signinpwdTeacher.getText().toString();
+                        final String cnfpwd     = signinpwdcnfrmTeacher.getText().toString();
+                        //todo : get marksheet uri
+//                        final String marksheetUri = txt
+
+                        if(!name.isEmpty() && !usn.isEmpty() && !pno.isEmpty() &&
+                                !email.isEmpty() && !pwd.isEmpty() && !cnfpwd.isEmpty() && pwd.equals(cnfpwd)) {
+                            if (cnfpwd.equals(pwd)) {
+                                loadingBar.setTitle("Creating new Account");
+                                loadingBar.setMessage("Please wait, while we are creating new account for you...");
+                                loadingBar.setCanceledOnTouchOutside(true);
+                                loadingBar.show();
+                                mAuth.createUserWithEmailAndPassword(email, pwd)
+                                        .addOnCompleteListener(SignUp.this, new OnCompleteListener<AuthResult>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                                if (task.isSuccessful()) {
+                                                    memberTeacher.name(name);
+                                                    memberTeacher.setStudent_id(usn);
+                                                    memberTeacher.setStudent_phone(pno);
+                                                    memberTeacher.setStudent_email(email);
+                                                    memberTeacher.setStudent_aadhar_number(aadhar);
+                                                    memberTeacher.setUser_type("LoginStudent");// login type is student
+                                                    //we encrypt and store password
+                                                    memberTeacher.setStudent_password(""+pwd);
+                                                    memberTeacher.setUser_id(mAuth.getUid());
                                                     long time = System.currentTimeMillis();
 
                                                     dbref.collection("Student")
@@ -180,97 +260,14 @@ public class SignUp extends AppCompatActivity implements AdapterView.OnItemSelec
                             } else {
                                 Toast.makeText(SignUp.this, "Password Not Confirmed", Toast.LENGTH_SHORT).show();
                             }
-                        } else {
+                        }
+                        else {
                             Snackbar.make(v, "All fields are required.", Snackbar.LENGTH_LONG).show();
                         }
 
                     }
                 });
                 break;
-            //todo: Change the value to admin
-//            case 2: //Teacher Sign UP
-//
-//                txtnmStudent            = findViewById(R.id.signinnameStudent);
-//                txtusnStudent           = findViewById(R.id.signinusnStudent);
-//                txtpnoStudent           = findViewById(R.id.signinpnoStudent);
-//                txtemailStudent         = findViewById(R.id.signinEmail);
-//                txtpwdStudent           = findViewById(R.id.signinpwdStudent);
-//                txtcnfpwdStudent        = findViewById(R.id.signinpwdcnfrmStudent);
-//                btnRegisterStudent      = findViewById(R.id.submitButtonStudent);
-//                txtAadharId = findViewById(R.id.signinAadhar);
-//                txtAgeStudent = findViewById(R.id.signinage);
-//
-//                btnRegisterStudent.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        final String name       = txtnmStudent.getText().toString();
-//                        final String usn        = txtusnStudent.getText().toString();
-//                        final String pno        = txtpnoStudent.getText().toString();
-//                        final String email      = txtemailStudent.getText().toString();
-//                        final String aadhar     =  txtAadharId.getText().toString();
-//                        final String pwd        = txtpwdStudent.getText().toString();
-//                        final String cnfpwd     = txtcnfpwdStudent.getText().toString();
-//                        final String age = txtAgeStudent.getText().toString();
-//                        //todo : get marksheet uri
-////                        final String marksheetUri = txt
-//
-//                        if(!name.isEmpty() && !usn.isEmpty() && !pno.isEmpty() &&
-//                                !email.isEmpty() && !pwd.isEmpty() && !cnfpwd.isEmpty() && pwd.equals(cnfpwd)) {
-//                            if (cnfpwd.equals(pwd)) {
-//                                loadingBar.setTitle("Creating new Account");
-//                                loadingBar.setMessage("Please wait, while we are creating new account for you...");
-//                                loadingBar.setCanceledOnTouchOutside(true);
-//                                loadingBar.show();
-//                                mAuth.createUserWithEmailAndPassword(email, pwd)
-//                                        .addOnCompleteListener(SignUp.this, new OnCompleteListener<AuthResult>() {
-//                                            @Override
-//                                            public void onComplete(@NonNull Task<AuthResult> task) {
-//                                                if (task.isSuccessful()) {
-//                                                    memberStudent.setStudent_name(name);
-//                                                    memberStudent.setStudent_id(usn);
-//                                                    memberStudent.setStudent_phone(pno);
-//                                                    memberStudent.setStudent_email(email);
-//                                                    memberStudent.setStudent_aadhar_number(aadhar);
-//                                                    memberStudent.setUser_type("LoginStudent");// login type is student
-//                                                    //we encrypt and store password
-//                                                    memberStudent.setStudent_password(""+pwd);
-//                                                    memberStudent.setStudent_age(age);
-//                                                    memberStudent.setUser_id(mAuth.getUid());
-//                                                    memberStudent.setMarksheetUrl("http//fetch.me");
-//                                                    long time = System.currentTimeMillis();
-//
-//                                                    dbref.collection("Student")
-//                                                            .add(memberStudent)
-//                                                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-//                                                                @Override
-//                                                                public void onSuccess(DocumentReference documentReference) {
-//                                                                    Toast.makeText(SignUp.this, "Data Added", Toast.LENGTH_SHORT).show();
-//
-//                                                                }
-//                                                            });
-//
-//                                                    loadingBar.dismiss();
-//                                                    Toast.makeText(SignUp.this, "Data Inserted Successfully!!!", Toast.LENGTH_SHORT).show();
-//                                                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-//                                                } else {
-//                                                    loadingBar.dismiss();
-//                                                    Toast.makeText(SignUp.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
-//
-//                                                }
-//
-//                                            }
-//                                        });
-//                            } else {
-//                                Toast.makeText(SignUp.this, "Password Not Confirmed", Toast.LENGTH_SHORT).show();
-//                            }
-//                        }
-//                        else {
-//                            Snackbar.make(v, "All fields are required.", Snackbar.LENGTH_LONG).show();
-//                        }
-//
-//                    }
-//                });
-//                break;
         }
     }
 
