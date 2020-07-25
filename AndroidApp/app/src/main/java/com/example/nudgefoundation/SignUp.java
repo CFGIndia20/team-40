@@ -171,7 +171,7 @@ public class SignUp extends AppCompatActivity implements AdapterView.OnItemSelec
                                                                 public void onSuccess(DocumentReference documentReference) {
                                                                     Toast.makeText(SignUp.this, "Data Added", Toast.LENGTH_SHORT).show();
                                                                     Toast.makeText(SignUp.this, "Data Inserted Successfully!!!", Toast.LENGTH_SHORT).show();
-                                                                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                                                                    startActivity(new Intent(getApplicationContext(), StudentActivity.class));
                                                                 }
                                                             });
 
@@ -326,7 +326,7 @@ public class SignUp extends AppCompatActivity implements AdapterView.OnItemSelec
                                                                 public void onSuccess(DocumentReference documentReference) {
                                                                     Toast.makeText(SignUp.this, "Data Added", Toast.LENGTH_SHORT).show();
                                                                     Toast.makeText(SignUp.this, "Data Inserted Successfully!!!", Toast.LENGTH_SHORT).show();
-                                                                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                                                                    startActivity(new Intent(getApplicationContext(), AdminActivity.class));
                                                                 }
                                                             });
 
