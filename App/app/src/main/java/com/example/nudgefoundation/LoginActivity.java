@@ -25,15 +25,15 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseUser currentUser;
     ProgressDialog loadingBar;
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if(currentUser != null)
-        {
-            startActivity(new Intent(this,HomeActivity.class));
-        }
-
-    }
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        if(currentUser != null)
+//        {
+//            startActivity(new Intent(this,HomeActivity.class));
+//        }
+//
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

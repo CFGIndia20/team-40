@@ -138,7 +138,7 @@
         </androidx.cardview.widget.CardView>
 
         <Button
-            android:id="@+id/submit ButtonTeacher"
+            android:id="@+id/submitButtonTeacher"
             android:layout_width="300dp"
             android:layout_height="match_parent"
             android:layout_alignParentBottom="true"
