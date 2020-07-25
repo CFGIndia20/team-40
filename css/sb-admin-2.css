@@ -230,6 +230,7 @@ th {
 label {
   display: inline-block;
   margin: 0.5rem;
+  padding-bottom:10px;
 }
 
 button {

@@ -1,7 +1,7 @@
 <?php 
 class Database {
     protected $host = "localhost";
-    protected $db = "authentication";
+    protected $db = "nudge";
     protected $username = "";
     protected $password = "";
     protected $table;
