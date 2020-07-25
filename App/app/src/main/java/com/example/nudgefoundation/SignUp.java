@@ -36,14 +36,16 @@ public class SignUp extends AppCompatActivity implements AdapterView.OnItemSelec
     FirebaseAuth mAuth;
     FirebaseFirestore dbref;
 
-    TextInputEditText txtnmStudent,txtusnStudent,txtpnoStudent,txtemailStudent,txtpwdStudent,txtcnfpwdStudent,txtAadharId,txtAgeStudent;
+    TextInputEditText txtnmStudent,txtusnStudent,txtpnoStudent,txtemailStudent,txtpwdStudent,txtcnfpwdStudent,txtAadharId,txtAgeStudent,txtPercentStudent;
     TextInputEditText signinnameTeacher,signinUniqueIdTeacher,signinpnoTeacher,signinemailTeacher,signinpwdTeacher,signinpwdcnfrmTeacher;
+    TextInputEditText signinnameAdmin ,signinUniqueIdAdmin,signinpnoAdmin,signinemailAdmin,signinpwdAdmin,signinpwdcnfrmAdmin;
 
     MemberAdmin memberAdmin;
     MemberStudent memberStudent;
     MemberTeacher memberTeacher;
     Button btnRegisterTeacher;
     Button btnRegisterStudent;
+    Button btnRegisterAdmin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,6 +118,7 @@ public class SignUp extends AppCompatActivity implements AdapterView.OnItemSelec
                 txtpwdStudent = findViewById(R.id.signinpwdStudent);
                 txtcnfpwdStudent = findViewById(R.id.signinpwdcnfrmStudent);
                 btnRegisterStudent = findViewById(R.id.submitButtonStudent);
+                txtPercentStudent = findViewById(R.id.signinPercentStudent);
                 txtAadharId = findViewById(R.id.signinAadhar);
                 txtAgeStudent = findViewById(R.id.signinage);
 
@@ -130,6 +133,7 @@ public class SignUp extends AppCompatActivity implements AdapterView.OnItemSelec
                         final String pwd = txtpwdStudent.getText().toString();
                         final String cnfpwd = txtcnfpwdStudent.getText().toString();
                         final String age = txtAgeStudent.getText().toString();
+                        final String percent = txtPercentStudent.getText().toString();
                         //todo : get marksheet uri
 //                        final String marksheetUri = txt
 
@@ -156,6 +160,7 @@ public class SignUp extends AppCompatActivity implements AdapterView.OnItemSelec
                                                     memberStudent.setStudent_password("" + pwd);
                                                     memberStudent.setStudent_age(age);
                                                     memberStudent.setUser_id(mAuth.getUid());
+                                                    memberStudent.setStudent_percentage(percent);
                                                     memberStudent.setMarksheetUrl("http//fetch.me");
                                                     long time = System.currentTimeMillis();
 
@@ -230,7 +235,7 @@ public class SignUp extends AppCompatActivity implements AdapterView.OnItemSelec
                                                     memberTeacher.setTeacher_id(usn);
                                                     memberTeacher.setTeacher_phone(pno);
                                                     memberTeacher.setTeacher_email(email);
-                                                    memberTeacher.setUser_type("LoginStudent");// login type is student
+                                                    memberTeacher.setUser_type("LoginTeacher");// login type is student
                                                     //we encrypt and store password
                                                     memberTeacher.setTeacher_password(""+pwd);
                                                     memberTeacher.setUser_id(mAuth.getUid());
@@ -269,25 +274,25 @@ public class SignUp extends AppCompatActivity implements AdapterView.OnItemSelec
                 });
                 break;
             //todo: Change the value to admin
-            /*case 3: //Admin Sign UP
+            case 3: //Admin Sign UP
 
-                signinnameTeacher            = findViewById(R.id.signinnameTeacher);
-                signinUniqueIdTeacher           = findViewById(R.id.signinUniqueIdTeacher);
-                signinpnoTeacher           = findViewById(R.id.signinpnoTeacher);
-                signinemailTeacher         = findViewById(R.id.signinemailTeacher);
-                signinpwdTeacher           = findViewById(R.id.signinpwdTeacher);
-                signinpwdcnfrmTeacher        = findViewById(R.id.signinpwdcnfrmTeacher);
-                btnRegisterTeacher      = findViewById(R.id.submitButtonTeacher);
+                signinnameAdmin            = findViewById(R.id.signinnameAdmin);
+                signinUniqueIdAdmin           = findViewById(R.id.signinusnAdmin);
+                signinpnoAdmin           = findViewById(R.id.signinpnoAdmin);
+                signinemailAdmin         = findViewById(R.id.signinemailAdmin);
+                signinpwdAdmin           = findViewById(R.id.signinpwdAdmin);
+                signinpwdcnfrmAdmin        = findViewById(R.id.signinpwdcnfrmAdmin);
+                btnRegisterAdmin      = findViewById(R.id.submitAdmin);
 
-                btnRegisterStudent.setOnClickListener(new View.OnClickListener() {
+                btnRegisterAdmin.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        final String name       = signinnameTeacher.getText().toString();
-                        final String usn        = signinUniqueIdTeacher.getText().toString();
-                        final String pno        = signinpnoTeacher.getText().toString();
-                        final String email      = signinemailTeacher.getText().toString();
-                        final String pwd        = signinpwdTeacher.getText().toString();
-                        final String cnfpwd     = signinpwdcnfrmTeacher.getText().toString();
+                        final String name       = signinnameAdmin.getText().toString();
+                        final String usn        = signinUniqueIdAdmin.getText().toString();
+                        final String pno        = signinpnoAdmin.getText().toString();
+                        final String email      = signinemailAdmin.getText().toString();
+                        final String pwd        = signinpwdAdmin.getText().toString();
+                        final String cnfpwd     = signinpwdcnfrmAdmin.getText().toString();
                         //todo : get marksheet uri
 //                        final String marksheetUri = txt
 
@@ -298,23 +303,24 @@ public class SignUp extends AppCompatActivity implements AdapterView.OnItemSelec
                                 loadingBar.setMessage("Please wait, while we are creating new account for you...");
                                 loadingBar.setCanceledOnTouchOutside(true);
                                 loadingBar.show();
+                                memberAdmin = new MemberAdmin();
                                 mAuth.createUserWithEmailAndPassword(email, pwd)
                                         .addOnCompleteListener(SignUp.this, new OnCompleteListener<AuthResult>() {
                                             @Override
                                             public void onComplete(@NonNull Task<AuthResult> task) {
                                                 if (task.isSuccessful()) {
-                                                    memberTeacher.setTeacher_name(name);
-                                                    memberTeacher.setTeacher_id(usn);
-                                                    memberTeacher.setTeacher_phone(pno);
-                                                    memberTeacher.setTeacher_email(email);
-                                                    memberTeacher.setUser_type("LoginStudent");// login type is student
+                                                    memberAdmin.setAdmin_name(name);
+                                                    memberAdmin.setAdmin_id(usn);
+                                                    memberAdmin.setAdmin_phone(pno);
+                                                    memberAdmin.setAdmin_email(email);
+                                                    memberAdmin.setUser_type("LoginAdmin");// login type is student
                                                     //we encrypt and store password
-                                                    memberTeacher.setTeacher_password(""+pwd);
-                                                    memberTeacher.setUser_id(mAuth.getUid());
+                                                    memberAdmin.setAdmin_password(""+pwd);
+                                                    memberAdmin.setUser_id(mAuth.getUid());
                                                     long time = System.currentTimeMillis();
 
-                                                    dbref.collection("Teachers")
-                                                            .add(memberStudent)
+                                                    dbref.collection("Admins")
+                                                            .add(memberAdmin)
                                                             .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                                                 @Override
                                                                 public void onSuccess(DocumentReference documentReference) {
@@ -344,7 +350,7 @@ public class SignUp extends AppCompatActivity implements AdapterView.OnItemSelec
 
                     }
                 });
-                break;*/
+                break;
         }
     }
 
