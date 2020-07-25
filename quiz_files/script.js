@@ -67,6 +67,8 @@ function setStatusClass(element, correct) {
   clearStatusClass(element)
   if (correct) {
     element.classList.add('correct')
+  } else {
+    element.classList.add('wrong')
   }
 }
 
@@ -88,21 +90,21 @@ const questions = [{
     ]
   },
   {
-    question: 'Is web development fun?',
+    question: 'Communication is a part of ______ skills',
     answers: [{
-        text: 'Kinda',
+        text: 'Rough',
         correct: false
       },
       {
-        text: 'YES!!!',
+        text: 'Soft',
         correct: true
       },
       {
-        text: 'Um no',
+        text: 'Hard',
         correct: false
       },
       {
-        text: 'IDK',
+        text: 'Short',
         correct: false
       }
     ]
@@ -118,5 +120,25 @@ const questions = [{
         correct: true
       }
     ]
-  }
+  },
+  {
+    question: 'Our dress code is example of _____ skills',
+    answers: [{
+        text: 'verbal',
+        correct: false
+      },
+      {
+        text: 'nonverbal',
+        correct: true
+      },
+      {
+        text: 'Writen',
+        correct: false
+      },
+      {
+        text: 'Spoken',
+        correct: false
+      },
+    ]
+  },
 ]
