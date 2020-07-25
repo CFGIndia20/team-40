@@ -73,14 +73,14 @@ if(isset($_COOKIE['token']) && $tokenHandler->isValid($_COOKIE['token'], 1)){
                             <a class="nav-link" href="#">LOGIN <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="signup.php">REGISTER</a>
+                            <a class="nav-link" href="signup-teacher.php">REGISTER</a>
                         </li>
                         
                         <li class="nav-item">
                             <a class="nav-link " href="#"></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="index.php">HOME</a>
+                            <a class="nav-link " href="index.php">DASHBOARD</a>
                         </li>
                     </ul>
                 </div>
@@ -100,9 +100,9 @@ if(isset($_COOKIE['token']) && $tokenHandler->isValid($_COOKIE['token'], 1)){
                                 <div class="col-lg-12">
                                     <div class="p-5">
                                         <div class="text-center">
-                                            <h1 class="h4 text-gray-900 mb-4">Welcome Back Admin!</h1>
+                                            <h1 class="h4 text-gray-900 mb-4">Welcome Back Teacher!</h1>
                                         </div>
-                                        <form class="user" action="signin.php" method="POST">
+                                        <form class="user" action="signin-teacher.php" method="POST">
                                             <div class="form-group">
                                                 <input type="email" name="email" class="form-control form-control-user" placeholder="Enter Email..." required>
                                             </div>
