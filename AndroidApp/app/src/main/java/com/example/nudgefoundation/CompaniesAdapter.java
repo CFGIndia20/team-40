@@ -42,7 +42,7 @@ public class CompaniesAdapter extends RecyclerView.Adapter<CompaniesAdapter.MyVi
             dbref = FirebaseFirestore.getInstance();
             mAuth = FirebaseAuth.getInstance();
             companyTitle              = view.findViewById(R.id.t_title);
-            companyDescrpition               = view.findViewById(R.id.description);
+            companyDescrpition               = view.findViewById(R.id.t_description);
             companyCTC               = view.findViewById(R.id.t_ctc);
             applyButton                   = view.findViewById(R.id.btn_apply);
             linearLayout            = view.findViewById(R.id.id);
@@ -55,7 +55,7 @@ public class CompaniesAdapter extends RecyclerView.Adapter<CompaniesAdapter.MyVi
 
     @NonNull
     @Override
-    public CompaniesAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.custom_company_card, parent, false);
         Toast.makeText(itemView.getContext(), "Reached on create", Toast.LENGTH_SHORT).show();
@@ -64,8 +64,8 @@ public class CompaniesAdapter extends RecyclerView.Adapter<CompaniesAdapter.MyVi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final CompaniesAdapter.MyViewHolder holder, int position) {
-        final CompanyModel companyModel =companyList.get(position);
+    public void onBindViewHolder(@NonNull final MyViewHolder holder, int position) {
+        CompanyModel companyModel =companyList.get(position);
         holder.companyTitle.setText(companyModel.getCompany_name());
         holder.companyDescrpition.setText(companyModel.getDescription());
         holder.companyCTC.setText(companyModel.getEstimated_CTC());
