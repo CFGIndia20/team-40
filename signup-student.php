@@ -119,15 +119,10 @@ if(!empty($_POST)){
 
                                         <input type="tel" name="phone" class="form-control form-control-user" placeholder="Phone Number" required>
                                     </div>
-
+                                    <div class="form-group">
                                     <input type="number" name="age" class="form-control form-control-user" placeholder="Age" required>
                                     </div>
-
-                                    <input type="text" name="aadhar" class="form-control form-control-user" placeholder="Aadhar Number" required>
-                                    </div>
-
-                                    <input type="file" name="file" class="form-control form-control-user"  required>
-                                    </div>
+                                    
                         
                                     <?php 
                                         if($validation->errors()->has('email')):
@@ -142,6 +137,13 @@ if(!empty($_POST)){
                                             <input type="password" name="password" class="form-control form-control-user" placeholder="Password" minlength="8" required >
                                         </div>
                                     </div>
+
+                                    <div class="form-group">
+                                    <input type="text" name="aadhar" class="form-control form-control-user" placeholder="Aadhar Number" required>
+                                    </div>
+                                    <!-- <div class="form-group"> -->
+                                    <input type="file" name="file" class="" style="margin-bottom:30px;"  required>
+                                    
                     
                                     <input type="submit" value="Register Account" class="btn btn-primary btn-user btn-block">
                                     <hr>

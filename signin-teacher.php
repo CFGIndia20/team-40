@@ -80,7 +80,7 @@ if(isset($_COOKIE['token']) && $tokenHandler->isValid($_COOKIE['token'], 1)){
                             <a class="nav-link " href="#"></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="index.php">DASHBOARD</a>
+                            <a class="nav-link " href="index.php">HOME</a>
                         </li>
                     </ul>
                 </div>
