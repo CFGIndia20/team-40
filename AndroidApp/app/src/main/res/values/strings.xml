@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">NudgeFoundation</string>
+    <string-array name="user_type">User Type>
+        <item>Select User Type*</item>
+        <item>Student</item>
+        <item>Teacher</item>
+        <item>Admin</item>
+    </string-array>
+</resources>
