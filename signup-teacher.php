@@ -109,7 +109,7 @@ if(!empty($_POST)){
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">Create an Account Teacher!</h1>
                                 </div>
-                                <form action="signup.php" method="POST" class="user">
+                                <form action="signin-teacher.php" method="POST" class="user">
                                     <div class="form-group row">
                                         <div class="col-sm-12 mb-3 mb-sm-0">
                 
