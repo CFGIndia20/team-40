@@ -40,13 +40,166 @@
 
         </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_college_event"
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/recycler_college_event"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1">-->
+
+<!--        </androidx.recyclerview.widget.RecyclerView>-->
+        <LinearLayout
+            android:id="@+id/id1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="vertical">
 
-        </androidx.recyclerview.widget.RecyclerView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="4dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/participant_name1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_weight="5"
+                    android:text="Monil"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="19sp" />
+
+
+                <Button
+                    android:id="@+id/assesment_marks1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="4dp"
+                    android:layout_weight="1"
+                    android:text="99"
+                    android:background="@drawable/rounded_button"
+                    android:textColor="@color/whiteColour"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/description2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/id2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="4dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/participant_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_weight="5"
+                    android:text="Mrinal"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="19sp" />
+
+
+                <Button
+                    android:id="@+id/assesment_marks2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="4dp"
+                    android:layout_weight="1"
+                    android:text="97"
+                    android:background="@drawable/rounded_button"
+                    android:textColor="@color/whiteColour"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/description3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/id3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="4dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/participant_name3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_weight="5"
+                    android:text="Spandana"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="19sp" />
+
+
+                <Button
+                    android:id="@+id/assesment_marks8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="4dp"
+                    android:layout_weight="1"
+                    android:text="88"
+                    android:background="@drawable/rounded_button"
+                    android:textColor="@color/whiteColour"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_jpmc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linear_group_layout">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <TextView
+                android:id="@+id/description7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
 
         <LinearLayout
             android:id="@+id/linear_group_layout"
@@ -75,13 +228,144 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/id4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="4dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/participant_name4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_weight="5"
+                    android:text="Roshni"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="19sp" />
+
+
+                <Button
+                    android:id="@+id/assesment_marks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="4dp"
+                    android:layout_weight="1"
+                    android:text="97"
+                    android:background="@drawable/rounded_button"
+                    android:textColor="@color/whiteColour"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/id6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="4dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/participant_name5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_weight="5"
+                    android:text="Mrinal"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="19sp" />
+
+
+                <Button
+                    android:id="@+id/assesment_marks4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="4dp"
+                    android:layout_weight="1"
+                    android:text="92"
+                    android:background="@drawable/rounded_button"
+                    android:textColor="@color/whiteColour"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="4dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/participant_name7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_weight="5"
+                    android:text="Jaya"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="19sp" />
+
+
+                <Button
+                    android:id="@+id/assesment_marks7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="4dp"
+                    android:layout_weight="1"
+                    android:text="85"
+                    android:background="@drawable/rounded_button"
+                    android:textColor="@color/whiteColour"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_group_event"
+            android:id="@+id/recycler_Google"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/linear_group_layout">
 
         </androidx.recyclerview.widget.RecyclerView>
+
     </LinearLayout>
 </ScrollView>
 

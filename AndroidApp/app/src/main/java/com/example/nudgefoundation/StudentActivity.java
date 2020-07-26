@@ -92,7 +92,7 @@ public class StudentActivity extends AppCompatActivity {
                                 }
                                 for (QueryDocumentSnapshot document: task.getResult())
                                 {
-                                    Toast.makeText(StudentActivity.this, ""+(count++), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(StudentActivity.this, "Student Login", Toast.LENGTH_SHORT).show();
                                     memberStudent = document.toObject(MemberStudent.class);
                                     if (memberStudent.getStudent_id().equals(mAuth.getUid()))
                                     {
