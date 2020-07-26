@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -33,8 +34,8 @@ public class AdminActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
-        mRecyclerViewGoogle = findViewById(R.id.recycler_college_event);
-        mRecyclerViewJpmc = findViewById(R.id.recycler_group_event);
+        mRecyclerViewGoogle = findViewById(R.id.recycler_Google);
+        mRecyclerViewJpmc = findViewById(R.id.recycler_jpmc);
 
         mAuth = FirebaseAuth.getInstance();
         dbref = FirebaseFirestore.getInstance();
@@ -63,9 +64,10 @@ public class AdminActivity extends AppCompatActivity {
                         {
                             meritModel = documentSnapshot.toObject(MeritModel.class);
                             googleLists.add(meritModel);
-                            Toast.makeText(AdminActivity.this, googleLists.size(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AdminActivity.this, "Admin View", Toast.LENGTH_SHORT).show();
 
-                        }
+                    }
+                        Toast.makeText(AdminActivity.this, ""+googleLists.size(), Toast.LENGTH_SHORT).show();
                         mRecyclerViewGoogle.clearOnScrollListeners();
                         mRecyclerViewGoogle.clearOnChildAttachStateChangeListeners();
                         //This sets the all data from the firebase onto the adapter
@@ -76,7 +78,13 @@ public class AdminActivity extends AppCompatActivity {
                         mRecyclerViewGoogle.setItemAnimator(new DefaultItemAnimator());
                         mRecyclerViewGoogle.setAdapter(myPinnedAdapter);
                     }
-                });
+                })
+        .addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(AdminActivity.this, "Fetching failed", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
     void fetchJPMC()
     {
