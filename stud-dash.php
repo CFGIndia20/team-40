@@ -27,13 +27,13 @@
                     <ul class="navbar-nav">
 
                         <li class="nav-item">
-                            <a class="nav-link" href=#> Logged in as an student</a>
+                            <a class="nav-link" href=#>HELLO STUDENT</a>
                         </li>
 
 
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link " href="index.php">DASHBOARD</a><!--Change link-->
-                        </li>
+                        <!-- </li>  -->
                     </ul>
                 </div>
             </div>
