@@ -1,4 +1,5 @@
 # team-40
+# BITWISE RISE
 Automating process of time table generation with given constraints .
 Dashboard for administrator to represent which slots assigned to teachers.Three login portals for students, teachers and administrator.
 Quiz based registration .Weekly analysis of students done by teacher .
