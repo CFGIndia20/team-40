@@ -1,6 +1,7 @@
 package com.example.nudgefoundation;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -16,6 +17,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 public class LoginActivity extends AppCompatActivity {
     Button btn;
@@ -23,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView signtext, forgotPassword;
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
+    FirebaseFirestore dbref;
     ProgressDialog loadingBar;
 
 //    @Override
@@ -43,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         idedittext=findViewById(R.id.emailid);
         pasSedittext=findViewById(R.id.password);
         signtext= findViewById(R.id.signintext);
+        dbref = FirebaseFirestore.getInstance();
         btn= findViewById(R.id.btnLogin);
         forgotPassword = (TextView)findViewById(R.id.forgotPassword);
         mAuth= FirebaseAuth.getInstance();
@@ -82,7 +89,21 @@ public class LoginActivity extends AppCompatActivity {
                                     if (task.isSuccessful()) {
                                         // Sign in success, update UI with the signed-in user's information
                                         loadingBar.dismiss();
+                                        dbref.collection("Users")
+                                                .document(mAuth.getUid())
+                                                .addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                                                    @Override
+                                                    public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                                                        if (mAuth.getUid().equals(value.getData().toString()) )
+                                                        {
+                                                            startActivity(new Intent(getApplicationContext(),StudentActivity.class));
+                                                        }
+                                                    }
+                                                });
+                                        if (uName.equals("mrinalraj2809@gmail.com"))
                                         startActivity(new Intent(getApplicationContext(),StudentActivity.class));
+                                        else
+                                            startActivity(new Intent(getApplicationContext(),AdminActivity.class));
                                         //updateUI(user);
                                     } else {
                                         loadingBar.dismiss();
