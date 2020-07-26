@@ -32,13 +32,13 @@ if(!empty($_POST)){
                 setcookie('token', $token, time()+1800); //time() returns time in milliseconds +1800 means 30minutes 
                 //die(var_dump($token));
             }
-            header('Location: index.php');
+            header('Location: admindash.html');
         }
     }
 }
 
 if(isset($_COOKIE['token']) && $tokenHandler->isValid($_COOKIE['token'], 1)){
-    header('Location: index.php');
+    header('Location: admindash.html');
 }
 
 ?>
@@ -102,7 +102,7 @@ if(isset($_COOKIE['token']) && $tokenHandler->isValid($_COOKIE['token'], 1)){
                                         <div class="text-center">
                                             <h1 class="h4 text-gray-900 mb-4">Welcome Back Admin!</h1>
                                         </div>
-                                        <form class="user" action="signin.php" method="POST">
+                                        <form class="user" action="admindash.html" method="POST">
                                             <div class="form-group">
                                                 <input type="email" name="email" class="form-control form-control-user" placeholder="Enter Email..." required>
                                             </div>

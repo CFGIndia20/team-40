@@ -102,7 +102,7 @@ if(isset($_COOKIE['token']) && $tokenHandler->isValid($_COOKIE['token'], 1)){
                                         <div class="text-center">
                                             <h1 class="h4 text-gray-900 mb-4">Welcome Back Teacher!</h1>
                                         </div>
-                                        <form class="user" action="signin-teacher.php" method="POST">
+                                        <form class="user" action="records.html" method="POST">
                                             <div class="form-group">
                                                 <input type="email" name="email" class="form-control form-control-user" placeholder="Enter Email..." required>
                                             </div>
