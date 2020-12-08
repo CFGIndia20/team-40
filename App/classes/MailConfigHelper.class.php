@@ -16,7 +16,7 @@ class MailConfigHelper{
             $mail->Port = 2525;
             $mail->SMTPSecure = 'tls';
             $mail->isHTML(true);
-            $mail->setFrom('awatramani1@gmail.com', 'Priyanka');
+            $mail->setFrom('awatramanipriyanka1@gmail.com', 'Priyanka');
 
             return $mail;
     }

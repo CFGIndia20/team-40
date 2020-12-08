@@ -113,7 +113,7 @@ CREATE TABLE `student` (
 
 INSERT INTO `student` (`Student_id`, `Name`, `Email`, `Contact no`, `Adhaar No`, `Age`, `Marksheet`, `Attendance`, `Quiz score`) VALUES
 (1, 'Monil', 'monils1999@gmail.com', 9987677296, 123456789123, 21, '', NULL, NULL),
-(2, 'Priyanka', 'awatramani1@gmail.com', 9082625021, 3216549887321, 20, '', NULL, NULL);
+(2, 'Priyanka', 'awatramanipriyanka1@gmail.com', 9082625021, 3216549887321, 20, '', NULL, NULL);
 
 -- --------------------------------------------------------
 

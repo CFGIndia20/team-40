@@ -2,7 +2,7 @@
 class Database {
     protected $host = "localhost";
     protected $db = "nudge";
-    protected $username = "";
+    protected $username = "priyanka";
     protected $password = "";
     protected $table;
     protected $stmt;
